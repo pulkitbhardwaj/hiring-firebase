@@ -1,0 +1,29 @@
+{
+	"name": "hiring-project",
+	"private": true,
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"bootstrap": "lerna bootstrap"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pulkitbhardwaj/hiring-project.git"
+	},
+	"keywords": [],
+	"author": "Pulkit Bhardwaj <pulkitbhardwaj1994@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/pulkitbhardwaj/hiring-project/issues"
+	},
+	"homepage": "https://github.com/pulkitbhardwaj/hiring-project#readme",
+	"workspaces": {
+		"packages": [
+			"packages/*"
+		]
+	},
+	"devDependencies": {
+		"lerna": "^3.20.2"
+	}
+}

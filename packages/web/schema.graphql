@@ -1,0 +1,61 @@
+type Query {
+	candidates: [Candidate]
+}
+
+type Mutation {
+  addCandidate(name: String!, dob: Date!, summary: String, experience: [WorkExperience!], education: [Education!], summary: String, cv: CV, videoCV: [CV!]): Candidate!
+}
+
+type Candidate {
+	id: ID!
+	name:!
+	dob:  StringDate!
+	summary: String
+	experience: [WorkExperience!]
+	education: [Education!]
+	cv: CV!
+	videoCV: [CV!]
+  createdAt: Date!
+}
+
+type WorkExperience {
+	id: ID!
+	candidateID: ID!
+	position: String!
+	company: String!
+	location: String!
+	startDate: Date!
+	endDate: Date!
+	summary: String
+}
+
+type Education {
+	id: ID!
+	candidateID: ID!
+	qualification: String!
+	university: String!
+	location: String!
+	startDate: Date!
+	endDate: Date!
+	summary: String
+}
+
+type CV {
+	id: ID!
+	candidateID: ID!
+	candidateID: String!
+	fileName: String!
+	fileType: String!
+	fileURL: String!
+	fileSize: String!
+}
+
+type Date {
+	h: Int
+	m: Int
+	s: Int
+	dd: Int!
+	mm: Int!
+	yy: Int!
+  zone: String
+}
