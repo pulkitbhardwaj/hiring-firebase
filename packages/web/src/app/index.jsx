@@ -1,53 +1,42 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Header from '../components/Header'
-import CandidateProfile from './CandidateProfile'
+import { Route, Switch } from 'react-router-dom'
 import { createUseStyles } from 'react-jss'
+import Sidebar from '../components/Sidebar'
+import CandidateProfile from './CandidateProfile'
 
 const useStyles = createUseStyles({
-	'@global': {
-		'*': {
-			margin: 0
-		},
-		body: {
-			fontFamily:
-				'-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-			'-webkit-font-smoothing': 'antialiased',
-			'-moz-osx-font-smoothing': 'grayscale'
-		},
-		code: {
-			fontFamily:
-				'source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace'
-		}
-	},
 	app: {
-		height: '100vh',
-		width: '100%'
+		height: '90vh',
+		width: '100%',
+		display: 'flex',
+		alignItems: 'stretch',
+		justifyContent: 'flex-start'
 	}
 })
 
 const App = () => {
-	const styles = useStyles()
+	const { app } = useStyles()
 
 	return (
-		<div className={styles.app}>
-			<Router>
-				<Header />
-				<Switch>
-					<Route exact path="/">
-						<h2>Home Page</h2>
-					</Route>
-					<Route exact path="/blog">
-						<h2>Blog Page</h2>
-					</Route>
-					<Route exact path="/signup">
-						<h2>signup page</h2>
-					</Route>
-					<Route path="/profile/:id">
-						<CandidateProfile />
-					</Route>
-				</Switch>
-			</Router>
+		<div className={app}>
+			<Sidebar />
+			<Switch>
+				<Route exact path="/">
+					<h2>Home Page</h2>
+				</Route>
+				<Route exact path="/blog">
+					<h2>Blog Page</h2>
+				</Route>
+				<Route exact path="/signup">
+					<h2>signup page</h2>
+				</Route>
+				<Route path="/profile/:id">
+					<CandidateProfile />
+				</Route>
+				<Route path="/?s=:query">
+					<h2>Rest</h2>
+				</Route>
+			</Switch>
 		</div>
 	)
 }

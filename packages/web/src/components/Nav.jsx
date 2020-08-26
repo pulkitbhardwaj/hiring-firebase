@@ -24,17 +24,17 @@ const useStyles = createUseStyles({
 const Nav = ({
 	width = '100%',
 	direction = 'row',
+	className = '',
 	children,
-	className,
 	...props
 }) => {
-	const styles = useStyles({ width, direction })
+	const { nav, menu, menuItem } = useStyles({ width, direction })
 
 	return (
-		<nav className={`${styles.nav} ${className}`} {...props}>
-			<ul className={styles.menu}>
+		<nav className={`${nav} ${className}`} {...props}>
+			<ul className={menu}>
 				{children.map(child => (
-					<li className={styles.menuItem}>{child}</li>
+					<li className={menuItem}>{child}</li>
 				))}
 			</ul>
 		</nav>

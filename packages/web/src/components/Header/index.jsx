@@ -1,63 +1,27 @@
 import React from 'react'
-import Nav from './Nav'
-import { NavLink } from 'react-router-dom'
 import { createUseStyles } from 'react-jss'
 import MenuBar from './MenuBar'
 import Logo from './Logo'
+import Search from '../search'
 
 const useStyles = createUseStyles({
 	header: {
-		height: 80,
+		height: '10vh',
 		width: '100%',
 		display: 'flex',
 		alignItems: 'center',
-		justifyContent: 'stretch'
-	},
-	navLink: {
-		textDecoration: 'none',
-		padding: [10, 50],
-		backgroundColor: 'red',
-		color: 'white'
-	},
-	navLinkActive: {
-		backgroundColor: 'blue'
+		justifyContent: 'space-evenly'
 	}
 })
 
 const Header = () => {
-	const styles = useStyles()
+	const { header } = useStyles()
 
 	return (
-		<div className={styles.header}>
+		<div className={header}>
 			<MenuBar />
 			<Logo />
-			<Nav width="50%" direction="row">
-				<NavLink
-					className={styles.navLink}
-					activeClassName={styles.navLinkActive}
-					exact
-					to="/">
-					Home
-				</NavLink>
-				<NavLink
-					className={styles.navLink}
-					activeClassName={styles.navLinkActive}
-					to="/blog">
-					Blog
-				</NavLink>
-				<NavLink
-					className={styles.navLink}
-					activeClassName={styles.navLinkActive}
-					to="/signup">
-					SignUp
-				</NavLink>
-				<NavLink
-					className={styles.navLink}
-					activeClassName={styles.navLinkActive}
-					to="/profile/3">
-					Profile
-				</NavLink>
-			</Nav>
+			<Search />
 		</div>
 	)
 }
